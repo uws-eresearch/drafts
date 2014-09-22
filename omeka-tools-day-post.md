@@ -61,29 +61,29 @@ There are some annoyances:
 
 * Measured against our [principles], there one clear gap. We want to encourage all use of metadata to embrace linked-data principles and use URIs to identify things, in preference to strings. So while Omeka scores points for shipping with Dublin Core metadata, it loses out for not supporting *linked* data. If only it let you have a URI as well as a string value for any metadata field! We're not the only ones who want this, we know from sporadic forum posts that people want their linked data and the Omeka team seem to support the idea. So, we'll see what we can do to restart the conversation.
 
-  (There are a few different ways that Omeka may support Linked Data. Here are just a few:
+   (There are a few different ways that Omeka may support Linked Data. Here are just a few:
   
-  * Super hacky - use the HTML feature and put in RDFa \<a href="http://orcid.org/0000-0002-3545-944X" property="http://purl.org/dc/elements/1.1/creator">ptsefton</a> markup into metadata values
+   * Super hacky - use the HTML feature and put in RDFa \<a href="http://orcid.org/0000-0002-3545-944X" property="http://purl.org/dc/elements/1.1/creator">ptsefton</a> markup into metadata values
   
-  * *Super simple but not very usable*: use bare URIs as values and (maybe) hack the Omeka theme to display some other string
+   * *Super simple but not very usable*: use bare URIs as values and (maybe) hack the Omeka theme to display some other string
   
-  * *Also simple but problematic in other ways*: - use a portmanteau value like "Peter Sefton \<http://http://orcid.org/0000-0002-3545-944X>
+   * *Also simple but problematic in other ways*: - use a portmanteau value like "Peter Sefton \<http://http://orcid.org/0000-0002-3545-944X>
   
-  * *The [DOP] DIY approach*: Simply use the built in metadata (and Item relations) where possible/practical and also store a 'proper' RDF bitstream with richer metadata for each item, then use this to display more Linked-Data-esque item summaries, build clever external indexes.
+   * *The [DOP] DIY approach*: Simply use the built in metadata (and Item relations) where possible/practical and also store a 'proper' RDF bitstream with richer metadata for each item, then use this to display more Linked-Data-esque item summaries, build clever external indexes.
   
-  * *Elegant, but will it scale?* Use the Item Relations plugin. Create a page for Peter Sefton, with a URI, then link another record to it.
+   * *Elegant, but will it scale?* Use the Item Relations plugin. Create a page for Peter Sefton, with a URI, then link another record to it.
 
-  This looks quite good, but with a few (soluble but sobering) problems:
+   This looks quite good, but with a few (soluble but sobering) problems:
   
-    * The Item Relations plugin desperately needs a new UI element to do lookups as at the moment you need to know the integer ID of the item you want to link to. Michael Lynch and Lloyd Harischandra both looked at various aspects of this problem on the day.
+   * The Item Relations plugin desperately needs a new UI element to do lookups as at the moment you need to know the integer ID of the item you want to link to. Michael Lynch and Lloyd Harischandra both looked at various aspects of this problem on the day.
 	
-	* Item Relations don't show up in the API. But the API is extensible, so that should be doable.
+   * Item Relations don't show up in the API. But the API is extensible, so that should be doable.
 	
-	* Item Relations doesn't allow for a text label on the relation or the endpoint, so while you might want to say someone is the dc:creator of a resource, you only see the "Creator" label and the title of the item you link to. What if you wanted to say "Dr Sefton" or "Petiepie" rather than "Peter Sefton" but still link to the same item?
+   * Item Relations doesn't allow for a text label on the relation or the endpoint, so while you might want to say someone is the dc:creator of a resource, you only see the "Creator" label and the title of the item you link to. What if you wanted to say "Dr Sefton" or "Petiepie" rather than "Peter Sefton" but still link to the same item?
   
-  * *Change Omeka* (or write a very intrusive plugin): What if all metadata 'elements' in Omeka had an extra slot for the a URI value as well as a string value? And while we're at it, allow metadata elements to have URIs as well as names. Problem with this is it crosses into the territory of the Item Relations plugin.
+     * *Change Omeka* (or write a very intrusive plugin): What if all metadata 'elements' in Omeka had an extra slot for the a URI value as well as a string value? And while we're at it, allow metadata elements to have URIs as well as names. Problem with this is it crosses into the territory of the Item Relations plugin.
 
- * *Bizarre ugly stuff we'd almost certainly never do in real life* One way of hacking together Linked Data support would be to resort to ugly hacks like having "Creator1String" and "Creator1URI" as two separate fields then hiding this behind the UI. Or more fun but much much worse, when someone creates a new 'Creator' allow them to add  URI by minting a new metadata element like Creator_Peter%20Sefton_URI. Pretty sure this would break Omeka and make the DORA-gods very cranky.
+   * *Bizarre ugly stuff we'd almost certainly never do in real life* One way of hacking together Linked Data support would be to resort to ugly hacks like having "Creator1String" and "Creator1URI" as two separate fields then hiding this behind the UI. Or more fun but much much worse, when someone creates a new 'Creator' allow them to add  URI by minting a new metadata element like Creator_Peter%20Sefton_URI. Pretty sure this would break Omeka after a few thousand of these fields had been created and make the DORA-gods very cranky.
 
   )
 
@@ -91,15 +91,46 @@ There are some annoyances:
 
 If we were to take Omeka out of it's core comfort zone there are a number of things we'd want to do:
 
-* Create some user 
+* Create some user-facing forms for data uploads these would need to be simpler than the full admin UI with (you guessed it) lookups for almost everything, People, Subject codes, research context such as facilities.
+
+* Create (at least) group-level access control probably per-collection.
+
+* Build a generic framework for
+
+* Fix the things noted above: better API library, Linked Data Support, 
+
+# What we did
+
+## Gerry devine showed off his "PageMaker" Semantic CMS
+
+TODO: Gerry! Can you give us some background here?
+
+And during the afternoon, Gerry worked on making his CMS able to be used for lookups, so for example if we wanted to link an Omeka item to the a facility at [HIE] we'd be able to do that via a lookup. We're 
+
+
+## Lloyd and Michael both worked on metadata lookups
+
+Michael got a proof-of-concept UI going so that a user can use auto-complete to find Items rather than having to copy
+
+## Peter and Jacqueline chatted about rich semantically-linked  data-sets like the Dictionary of Sydney
+
+In preparation for the workshop, Peter tried taking the data from the [Journey to Horseshoe Bend]
+
+## Peter Bugeia investigated how environmental-science data would look in Omeka
+
+TODO: peter?
 
 # What would an Omeka service look like?
+
+If we wanted to offer this at UWS or beyond what would a supported service look like?
+
+
 
 
 
 [do]: http://www.dlib.org/dlib/january10/reilly/01reilly.html
 
-[DoS] : http://home.dictionaryofsydney.org/
+[DoS]: http://home.dictionaryofsydney.org/
 
 [DOP]: http://ptsefton.com/2014/09/22/digital-object-pattern-dop-vs-chucking-files-in-a-database-approaches-to-repository-design.htm
 
@@ -113,5 +144,6 @@ If we were to take Omeka out of it's core comfort zone there are a number of thi
 
 [file-object-pattern]: http://ptsefton.com/wp-content/uploads/2014/09/file-object-pattern.png
 
+[JTHB]: http://pubsites.uws.edu.au/coa/soca/jthb/
 
 [Heurist]: https://code.google.com/p/heurist/
