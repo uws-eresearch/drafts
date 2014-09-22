@@ -10,7 +10,7 @@ author:
 
 ---
 
-So, we have been asking this 'Is it aDORAble?' question about a few different software packages, and putting them through their paces at a series tuesday 'tools days' hosted by UWS eResearch. What we're asking is, "Is this software going to be one of our supported Working Data Repositories for researcher cohorts?" That is, how does it rate as a [DORA], a Digital Object Repository for Academe?
+So, we have been asking this 'Is it aDORAble?' question about a few different software packages, and putting them through their paces at a series of Tuesday 'tools days' hosted by UWS eResearch. What we're asking is, "Is this software going to be one of our supported Working Data Repositories for researcher cohorts?" That is, how does it rate as a [DORA], a Digital Object Repository for Academe?
 
 This week we had our biggest ever tools-day event, with external people joining the usual eResearch suspects. Thanks to Jacqueline Spedding from the Dictionary of Sydney, Michael Lynch & Sharyn Wise from UTS and Cindy Wong and Jake Farrell from Intersect for coming along.
 
@@ -22,17 +22,17 @@ So what were we wanting to know about Omeka? The external folks came along for a
 
 *  Is this something we can recommend for researchers with the kinds of research collections Omeka is known for?
 
-    Answer: almost certainly yes, unless we turn up any major problems in further testing, this is a good, solid, basic repository for Digital Humanities projects. So, for image and document based collections with limited budgets.
+    Answer: almost certainly yes, unless we turn up any major problems in further testing, this is a good, solid, basic repository for Digital Humanities projects. So, for image and document based collections with limited budgets this looks like an obvious choice.
 
-*  Can Omeka be used to build a semantically-rich website in a research/publishing project like the [DIctionary of Sydney][DoS]?
+*  Can Omeka be used to build a semantically-rich website in a research/publishing project like the [Dictionary of Sydney][DoS]?
 
-   (The reason we're asking this, is that UWS has a couple of projects with some similarities to the Dictionary, and we at UWS are interested in exploring what options there are for building and maintaining a big data base like this. The Dictionary uses an open source code-based called [Heurist]. Anyway, we have some data from Hart Cohen's [Journey to Horseshoe Bend] project which was exported from a n unfinished attempt to build a website using Heurist, and despite Omeka not being an obvious choice of platform for some, Peter Sefton saw something worth pursuing.)
+   (The reason we're asking this, is that UWS has a couple of projects with some similarities to the Dictionary, and we at UWS are interested in exploring what options there are for building and maintaining a big database like this. The Dictionary uses an open source code-based called [Heurist]. Anyway, we have some data from Hart Cohen's [Journey to Horseshoe Bend] project which was exported from an unfinished attempt to build a website using Heurist, and despite Omeka not being an obvious choice of platform for some, Peter Sefton saw something worth pursuing.)
 
    The verdict? Still working on it, but reasonably promising so far.
 
-* In summary, beyond its obvious purpose, is this a potential generic Digital Object Repository of Academe [DORA]?
+* In summary, beyond its obvious purpose, is this a potential generic Digital Object Repository of Academe [(DORA])?
 
-   Maybe. Of all the repository software we've tried at tools-days and looked at behind the scenes, and in fact  this has seems to be the most flexible and easily approachable of any software ever.
+   Maybe. Of all the repository software we've tried at tools-days and looked at behind the scenes, this seems to be the most flexible and easily approachable of any repository software.
 
 
 # Good
@@ -43,11 +43,11 @@ Omeka has a lot to recommend it:
 
 * It's easy to hack, and easy to hack well, since it has plugins and themes that let you customise it without touching the core code. These are easy enough to work with that we had people getting (small) results on the day. More on that below.
 
-* It uses the [Digital Object Pattern] (DOP) - ie at the heart of Omeka are digital object called Items with metadata, and and attached files. 
+* It uses the [Digital Object Pattern] (DOP) - ie at the heart of Omeka are digital objects called Items with metadata, and attached files. 
 
 * It has an API which just works, and can add items etc, although there are some complexities, more on which below.
 
-* It has lots of built-in ways to ingest data,
+* It has lots of built-in ways to ingest data, including (buggy) CSV import and OAI-PMH harvesting.
 
 # Bad
 
@@ -55,11 +55,11 @@ There are some annoyances:
 
 * The documentation, which at first glance seems fairly comprehensive is actually quite lacking. Examples of the plugin API are incorrect, and the description of the external API are pretty terse and very short on examples (eg they don't actually give an example of how to use your API key, or the pagination)/
 
-* The API while complete is a quite painful to use if you want to add anything - to add an item with metdata it's not as simple as saying {"title": "My title"} or even {"dc:title": "My Title"} - you have to do an API call to find elements called title, from the different element sets, then pick one and use *that*. And copy-pasting someone else's example is hard: their metadata element 50 may not be the same as ours. That's nothing a decent API library wouldn't take care of, and I'm looking for a student who'd like to take the Python API on as a project.
+* The API while complete is quite painful to use if you want to add anything - to add an item with metadata it's not as simple as saying {"title": "My title"} or even {"dc:title": "My Title"} - you have to do an API call to find elements called Title, from the different element sets, then pick one and use *that*. And copy-pasting someone else's example is hard: their metadata element 50 may not be the same as yours. That's nothing a decent API library wouldn't take care of, and I'm looking for a student who'd like to take the Python API on as a project.
 
 * No access control to speak of.
 
-* Measured against our [principles], there one clear gap. We want to encourage all use of metadata to embrace linked-data principles and use URIs to identify things, in preference to strings. So while Omeka scores points for shipping with Dublin Core metadata, it loses out for not supporting *linked* data. If only it let you have a URI as well as a string value for any metadata field! We're not the only ones who want this, we know from sporadic forum posts that people want their linked data and the Omeka team seem to support the idea. So, we'll see what we can do to restart the conversation.
+* Measured against our [principles], there's one clear gap. We want to encourage all use of metadata to embrace linked-data principles and use URIs to identify things, in preference to strings. So while Omeka scores points for shipping with Dublin Core metadata, it loses out for not supporting *linked* data. If only it let you have a URI as well as a string value for any metadata field! We're not the only ones who want this, we know from sporadic forum posts that people want their linked data and the Omeka team seem to support the idea. So, we'll see what we can do to restart the conversation.
 
    (There are a few different ways that Omeka may support Linked Data. Here are just a few:
   
@@ -67,11 +67,11 @@ There are some annoyances:
   
    * *Super simple but not very usable*: use bare URIs as values and (maybe) hack the Omeka theme to display some other string
   
-   * *Also simple but problematic in other ways*: - use a portmanteau value like "Peter Sefton \<http://http://orcid.org/0000-0002-3545-944X>
+   * *Also simple but problematic in other ways*: - use a portmanteau value like "Peter Sefton \<http://orcid.org/0000-0002-3545-944X>
   
-   * *The [DOP] DIY approach*: Simply use the built in metadata (and Item relations) where possible/practical and also store a 'proper' RDF bitstream with richer metadata for each item, then use this to display more Linked-Data-esque item summaries, build clever external indexes.
+   * *The [DOP] DIY approach*: Simply use the built in metadata (and Item relations) where possible/practical and also store a 'proper' RDF bitstream with richer metadata for each item, then use this to display more Linked-Data-esque item summaries, and build clever external indexes.
   
-   * *Elegant, but will it scale?* Use the Item Relations plugin. Create a page for Peter Sefton, with a URI, then link another record to it.
+   * *Elegant, but will it scale?* Use the Item Relations plugin. Create a page for your creator, with a URI, then link another record to it using an term from one of the known vocabs, like Dublin Core or FRBR.
 
    This looks quite good, but with a few (soluble but sobering) problems:
   
@@ -81,23 +81,12 @@ There are some annoyances:
 	
    * Item Relations doesn't allow for a text label on the relation or the endpoint, so while you might want to say someone is the dc:creator of a resource, you only see the "Creator" label and the title of the item you link to. What if you wanted to say "Dr Sefton" or "Petiepie" rather than "Peter Sefton" but still link to the same item?
   
-     * *Change Omeka* (or write a very intrusive plugin): What if all metadata 'elements' in Omeka had an extra slot for the a URI value as well as a string value? And while we're at it, allow metadata elements to have URIs as well as names. Problem with this is it crosses into the territory of the Item Relations plugin.
+     * *Change Omeka* (or write a very intrusive plugin): What if all metadata 'elements' in Omeka had an extra slot for the URI value as well as a string value? And while we're at it, allow metadata elements to have URIs as well as names. Problem with this is it crosses into the territory of the Item Relations plugin.
 
-   * *Bizarre ugly stuff we'd almost certainly never do in real life* One way of hacking together Linked Data support would be to resort to ugly hacks like having "Creator1String" and "Creator1URI" as two separate fields then hiding this behind the UI. Or more fun but much much worse, when someone creates a new 'Creator' allow them to add  URI by minting a new metadata element like Creator_Peter%20Sefton_URI. Pretty sure this would break Omeka after a few thousand of these fields had been created and make the DORA-gods very cranky.
+   * *Bizarre ugly stuff we'd almost certainly never do in real life*: One way of hacking together Linked Data support would be to resort to ugly hacks like having "Creator1String" and "Creator1URI" as two separate fields then hiding this behind the UI. Or more fun but much much worse, when someone creates a new 'Creator' allow them to add a URI by minting a new metadata element like Creator_Peter%20Sefton_URI. Pretty sure this would break Omeka after a few thousand of these fields had been created and make the DORA-gods very cranky.
 
   )
 
-# TODO
-
-If we were to take Omeka out of it's core comfort zone there are a number of things we'd want to do:
-
-* Create some user-facing forms for data uploads these would need to be simpler than the full admin UI with (you guessed it) lookups for almost everything, People, Subject codes, research context such as facilities.
-
-* Create (at least) group-level access control probably per-collection.
-
-* Build a generic framework for
-
-* Fix the things noted above: better API library, Linked Data Support, 
 
 # What we did
 
@@ -105,16 +94,16 @@ If we were to take Omeka out of it's core comfort zone there are a number of thi
 
 TODO: Gerry! Can you give us some background here?
 
-And during the afternoon, Gerry worked on making his CMS able to be used for lookups, so for example if we wanted to link an Omeka item to the a facility at [HIE] we'd be able to do that via a lookup. We're 
+And during the afternoon, Gerry worked on making his CMS able to be used for lookups, so for example if we wanted to link an Omeka item to a facility at [HIE] we'd be able to do that via a lookup. We're TODO
 
 
 ## Lloyd and Michael both worked on metadata lookups
 
-Michael got a proof-of-concept UI going so that a user can use auto-complete to find Items rather than having to copy
+Michael got a proof-of-concept UI going so that a user can use auto-complete to find Items rather than having to copy IDs.
 
 ## Peter and Jacqueline chatted about rich semantically-linked  data-sets like the Dictionary of Sydney
 
-In preparation for the workshop, Peter tried taking the data from the [Journey to Horseshoe Bend]
+In preparation for the workshop, Peter tried taking the data from the [Journey to Horseshoe Bend][JTHB]
 
 ## Peter Bugeia investigated how environmental-science data would look in Omeka
 
@@ -124,9 +113,14 @@ TODO: peter?
 
 The challenge: see if we can write a plugin which will detect YouTube links in metadata and embed a YouTube player (as a test case for a more general type of plugin that can show web previews of lots of different kinds of data).
 
-## Jake and looked at map-embedding
+## Jake looked at map-embedding
 
-Since we had some sample data from UWS of KMZ (compressed Google-map-layers for UWS campuses, we wondered if it would be possible to show map data inline in an item page.
+Since we had some sample data from UWS of KMZ (compressed Google-map-layers for UWS campuses), we wondered if it would be possible to show map data inline in an item page. Jake made some progress on this - the blocker isn't Omeka it was finding a good way to do this. Alf to the rescue with this snippet:
+
+    <script maps.googleapi.com blah>
+    var map = new google.maps.Map(document.getElementById("map"),{});
+    var layer = new google.maps.KmlLayer('http://ptomeka.alfski.com/files/original/acdc7f0e7436478658b086677039121a.kmz', { map: map });
+    </script>
 
 # Cindy worked on the Intersect press-button Omeka deployment
 
@@ -134,7 +128,24 @@ TODO: Can we get some details about this?
 
 # What would an Omeka service look like?
 
-If we wanted to offer this at UWS or beyond what would a supported service look like?
+If we wanted to offer this at UWS or beyond as well as use it for projects beyond the DH sphere, what would a supported service look like?
+
+If we were to take Omeka out of it's core comfort zone, like say being the working data repository in an engineering lab there are a number of things we'd want to do:
+
+* Create some user-facing forms for data uploads these would need to be simpler than the full admin UI with (you guessed it) lookups for almost everything, People, Subject codes, research context such as facilities.
+
+* Create (at least) group-level access control probably per-collection.
+
+* Build a generic framework for previewing or viewing files of various types. In some cases this is very simple, via the addition of a few lines of HTML, in others we'd want to have some kind of workflow system that can generate derived files.
+
+* Fix the things noted above: better API library, Linked Data Support, 
+
+To make a sustainable service, we'd want to:
+
+* Work out how to provide robust hosting with an optimal number of small Omeka servers per host (is it one? is it ten?).
+
+* Come up with a generic data management plan: "We'll host this for you for 12 months. After which if we don't come to a new arrangement your site will be archived and given a DOI and the web site turned off". Or something.
+
 
 
 
