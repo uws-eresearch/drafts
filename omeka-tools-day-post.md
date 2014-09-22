@@ -51,5 +51,3 @@ So what were we wanting to know about Omeka? The external folks came along for a
 [file-object-pattern]: http://ptsefton.com/wp-content/uploads/2014/09/file-object-pattern.png
 
 [NETCDF]: http://www.unidata.ucar.edu/software/netcdf/
-
-* Alf was here
