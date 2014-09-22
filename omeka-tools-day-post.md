@@ -88,6 +88,8 @@ There are some annoyances:
   )
 
 
+![](http://eresearch.uws.edu.au/public/om-pano.jpg)
+
 # What we did
 
 ## Gerry devine showed off his "PageMaker" Semantic CMS
