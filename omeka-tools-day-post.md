@@ -2,13 +2,19 @@
 ---
 title: Is Omeka aDORAable?
 
+author:
+- name: Peter Sefton
+  affiliation: University of Western Sydney
+- name: Author Two #ADD YOUR NAME!!!
+  affiliation: University of Nowhere
+
 ---
 
 So, we have been asking this 'Is it aDORAble?' question about a few different software packages, and putting them through their paces at a series tuesday 'tools days' hosted by UWS eResearch. What we're asking is, "Is this software going to be one of our supported Working Data Repostories for researcher cohorts?" That is, how does it rate as a [DORA], a Digital Object Repository for Academe?
 
-This week we had our biggest ever event, with external people joining the usual eResearch suspects. Thanks to Jacqeuline Spedding from the Dictionary of Sydney, Michael Lynch and  Sharyn Jones from UTS and Cindy Wong and Jake Farell from Intersect for coming along.
+This week we had our biggest ever tools-day event, with external people joining the usual eResearch suspects. Thanks to Jacqeuline Spedding from the Dictionary of Sydney, Michael Lynch and  Sharyn Jones from UTS and Cindy Wong and Jake Farell from Intersect for coming along.
 
-Omeka is a lightweight repository solution, originally targeting the Galleries, Archives & Museums space.
+Omeka is a lightweight digital repository / website building solution, originally targeting the Galleries, Archives & Museums space.
 
 Omeka has a lot to recommend it:
 
