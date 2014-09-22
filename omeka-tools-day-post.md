@@ -120,6 +120,18 @@ In preparation for the workshop, Peter tried taking the data from the [Journey t
 
 TODO: peter?
 
+# Sharyn and Andrew tried to hack together a simple plugin
+
+The challenge: see if we can write a plugin which will detect YouTube links in metadata and embed a YouTube player (as a test case for a more general type of plugin that can show web previews of lots of different kinds of data).
+
+## Jake and looked at map-embedding
+
+Since we had some sample data from UWS of KMZ (compressed Google-map-layers for UWS campuses, we wondered if it would be possible to show map data inline in an item page.
+
+# Cindy worked on the Intersect press-button Omeka deployment
+
+TODO: Can we get some details about this?
+
 # What would an Omeka service look like?
 
 If we wanted to offer this at UWS or beyond what would a supported service look like?
