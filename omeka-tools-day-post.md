@@ -5,8 +5,10 @@ title: Is Omeka aDORAable?
 author:
 - name: Peter Sefton
   affiliation: University of Western Sydney
-- name: Author Two #ADD YOUR NAME!!!
-  affiliation: University of Nowhere
+- name: Andrew Leahy
+  affiliation: University of Western Sydney
+- name: Author 3
+  affiliation: ABC
 
 ---
 
@@ -39,7 +41,7 @@ So what were we wanting to know about Omeka? The external folks came along for a
 
 Omeka has a lot to recommend it:
 
-*  It's easy to get up and running.
+* It's easy to get up and running.
 
 * It's easy to hack, and easy to hack well, since it has plugins and themes that let you customise it without touching the core code. These are easy enough to work with that we had people getting (small) results on the day. More on that below.
 
@@ -87,10 +89,9 @@ There are some annoyances:
 
   )
 
+# What we did
 
 ![](http://eresearch.uws.edu.au/public/om-pano.jpg)
-
-# What we did
 
 ## Gerry devine showed off his "PageMaker" Semantic CMS
 
@@ -103,7 +104,7 @@ And during the afternoon, Gerry worked on making his CMS able to be used for loo
 
 Michael got a proof-of-concept UI going so that a user can use auto-complete to find Items rather than having to copy IDs.
 
-## Peter and Jacqueline chatted about rich semantically-linked  data-sets like the Dictionary of Sydney
+## Peter and Jacqueline chatted about rich semantically-linked data-sets like the Dictionary of Sydney
 
 In preparation for the workshop, Peter tried taking the data from the [Journey to Horseshoe Bend][JTHB]
 
@@ -113,13 +114,14 @@ TODO: peter?
 
 # Sharyn and Andrew tried to hack together a simple plugin
 
-The challenge: see if we can write a plugin which will detect YouTube links in metadata and embed a YouTube player (as a test case for a more general type of plugin that can show web previews of lots of different kinds of data).
+The challenge: see if we can write a plugin which will detect YouTube links in metadata and embed a YouTube player. As a test case for a more general type of plugin that can show web previews of other kinds of data. After some inititial work on a 'plugin' Andrew and Sharon suspect that rendering media content is probably easier to achieve by modifying an Omeka Theme thab a plugin.
 
 ## Jake looked at map-embedding
 
-Since we had some sample data from UWS of KMZ (compressed Google-map-layers for UWS campuses), we wondered if it would be possible to show map data inline in an item page. Jake made some progress on this - the blocker isn't Omeka it was finding a good way to do this. Alf to the rescue with this snippet:
+Since we had some sample data from UWS of KMZ (compressed keyhole-markup files for UWS campuses), we wondered if it would be possible to show map data inline in an item page. Jake made some progress on this - the blocker isn't Omeka it was finding a good way to do this. Alf to the rescue with this snippet:
 
-    <script maps.googleapi.com blah>
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script>
     var map = new google.maps.Map(document.getElementById("map"),{});
     var layer = new google.maps.KmlLayer('http://ptomeka.alfski.com/files/original/acdc7f0e7436478658b086677039121a.kmz', { map: map });
     </script>
