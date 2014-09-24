@@ -61,74 +61,67 @@ There are some annoyances:
 
 * No access control to speak of.
 
+* By default the MYSQL search is set up to only search for 4 letter words or greater, so you can't search for CO2 or PTA (Parramatta) both of which are in our test data; totally fixable with some tweaking.
+
 * Measured against our [principles], there's one clear gap. We want to encourage all use of metadata to embrace linked-data principles and use URIs to identify things, in preference to strings. So while Omeka scores points for shipping with Dublin Core metadata, it loses out for not supporting *linked* data. If only it let you have a URI as well as a string value for any metadata field! We're not the only ones who want this, we know from sporadic forum posts that people want their linked data and the Omeka team seem to support the idea. So, we'll see what we can do to restart the conversation.
 
-   (There are a few different ways that Omeka may support Linked Data. Here are just a few:
-  
-   * Super hacky - use the HTML feature and put in RDFa \<a href="http://orcid.org/0000-0002-3545-944X" property="http://purl.org/dc/elements/1.1/creator">ptsefton</a> markup into metadata values
-  
-   * *Super simple but not very usable*: use bare URIs as values and (maybe) hack the Omeka theme to display some other string
-  
-   * *Also simple but problematic in other ways*: - use a portmanteau value like "Peter Sefton \<http://orcid.org/0000-0002-3545-944X>
-  
-   * *The [DOP] DIY approach*: Simply use the built in metadata (and Item relations) where possible/practical and also store a 'proper' RDF bitstream with richer metadata for each item, then use this to display more Linked-Data-esque item summaries, and build clever external indexes.
-  
-   * *Elegant, but will it scale?* Use the Item Relations plugin. Create a page for your creator, with a URI, then link another record to it using an term from one of the known vocabs, like Dublin Core or FRBR.
 
-   This looks quite good, but with a few (soluble but sobering) problems:
+# Can it do Linked Data
+There are a few different ways that Omeka may support Linked Data. Here are just a few:
   
-   * The Item Relations plugin desperately needs a new UI element to do lookups as at the moment you need to know the integer ID of the item you want to link to. Michael Lynch and Lloyd Harischandra both looked at various aspects of this problem on the day.
+1.  Super hacky - use the HTML feature and put in RDFa \<a href="http://orcid.org/0000-0002-3545-944X" property="http://purl.org/dc/elements/1.1/creator">ptsefton</a> markup into metadata values
+  
+2.  *Super simple but not very usable*: use bare URIs as values and (maybe) hack the Omeka theme to display some other string
+  
+3.  *Also simple but problematic in other ways*: - use a portmanteau value like "Peter Sefton \<http://orcid.org/0000-0002-3545-944X>"
+  
+4. *The [DOP] DIY approach*: Simply use the built in metadata (and Item relations) where possible/practical and also store a 'proper' RDF bitstream with richer metadata for each item, then use this to display more Linked-Data-esque item summaries, and build clever external indexes.
+  
+5.  *Elegant, but will it scale?* Use the Item Relations plugin. Create a page for your creator, with a URI, then link another record to it using an term from one of the known vocabs, like Dublin Core or FRBR.
+
+6.  *Change Omeka* (or write a very intrusive plugin): What if all metadata 'elements' in Omeka had an extra slot for the URI value as well as a string value? And while we're at it, allow metadata elements to have URIs as well as names. Problem with this is it crosses into the territory of the Item Relations plugin.
+
+7.  *Bizarre ugly stuff we'd almost certainly never do in real life*: One way of hacking together Linked Data support would be to resort to ugly hacks like having "Creator1String" and "Creator1URI" as two separate fields then hiding this behind the UI. Or more fun but much much worse, when someone creates a new 'Creator' allow them to add a URI by minting a new metadata element like Creator_Peter%20Sefton_URI. Pretty sure this would break Omeka after a few thousand of these fields had been created and make the DORA-gods very cranky.
+
+Of all these, number 5, using Item Relations looks quite good, but with a few (soluble but sobering) problems:
+  
+* The Item Relations plugin desperately needs a new UI element to do lookups as at the moment you need to know the integer ID of the item you want to link to. Michael Lynch and Lloyd Harischandra both looked at various aspects of this problem on the day.
 	
-   * Item Relations don't show up in the API. But the API is extensible, so that should be doable.
+* Item Relations don't show up in the API. But the API is extensible, so that should be doable, should be simple enough to add a resource for item_realations and allow thevocab lookups etc needed to relate things to each other as (essentially) Subject Predicate Object.
 	
-   * Item Relations doesn't allow for a text label on the relation or the endpoint, so while you might want to say someone is the dc:creator of a resource, you only see the "Creator" label and the title of the item you link to. What if you wanted to say "Dr Sefton" or "Petiepie" rather than "Peter Sefton" but still link to the same item?
-  
-     * *Change Omeka* (or write a very intrusive plugin): What if all metadata 'elements' in Omeka had an extra slot for the URI value as well as a string value? And while we're at it, allow metadata elements to have URIs as well as names. Problem with this is it crosses into the territory of the Item Relations plugin.
+* Item Relations doesn't allow for a text label on the relation or the endpoint, so while you might want to say someone is the dc:creator of a resource, you only see the "Creator" label and the title of the item you link to. What if you wanted to say "Dr Sefton" or "Petiepie" rather than "Peter Sefton" but still link to the same item?
 
-   * *Bizarre ugly stuff we'd almost certainly never do in real life*: One way of hacking together Linked Data support would be to resort to ugly hacks like having "Creator1String" and "Creator1URI" as two separate fields then hiding this behind the UI. Or more fun but much much worse, when someone creates a new 'Creator' allow them to add a URI by minting a new metadata element like Creator_Peter%20Sefton_URI. Pretty sure this would break Omeka after a few thousand of these fields had been created and make the DORA-gods very cranky.
 
-  )
 
 # What we did
 
-![](http://eresearch.uws.edu.au/public/om-pano.jpg)
+![Slightly doctored photo, either that or Cindy attended twice!](http://eresearch.uws.edu.au/public/om-pano.jpg)
 
-## Gerry devine showed off his "PageMaker" Semantic CMS
+* Gerry devine showed off his "PageMaker" Semantic CMS
 
 TODO: Gerry! Can you give us some background here?
 
-And during the afternoon, Gerry worked on making his CMS able to be used for lookups, so for example if we wanted to link an Omeka item to a facility at [HIE] we'd be able to do that via a lookup. We're TODO
+And during the afternoon, Gerry worked on making his CMS able to be used for lookups, so for example if we wanted to link an Omeka item to a facility at [HIE] we'd be able to do that via a lookup. We're looking at building on work, the [Fill My List][FML] (FML) project started by a team from Open Repositories 2014 on a universal URI lookup service with a consitent API for different sources of truth. Since the tools-day Lloyd has installed a UWS copy of FML so we can start experimenting with it with our family of repositories and research contexts.
 
 
-## Lloyd and Michael both worked on metadata lookups
+ Lloyd and Michael both worked on metadata lookups
 
 Michael got a proof-of-concept UI going so that a user can use auto-complete to find Items rather than having to copy IDs.
 
-## Peter and Jacqueline chatted about rich semantically-linked data-sets like the Dictionary of Sydney
+*PT and Jacqueline chatted about rich semantically-linked  data-sets* like the Dictionary of Sydney. In preparation for the workshop, PT tried taking the data from the [Journey to Horseshoe Bend][JTHB] project, which is in a similar format to the Dictionary, putting it in a spreadsheet with multiple worksheets and importing it via a very dodgy [Python Script][xslt2omeka]. 
 
-In preparation for the workshop, Peter tried taking the data from the [Journey to Horseshoe Bend][JTHB]
+Peter Bugeia investigated how environmental-science data would look in Omeka, by playing with the API to 
 
-## Peter Bugeia investigated how environmental-science data would look in Omeka
 
-TODO: peter?
+*Sharyn and Andrew tried to hack together a simple plugin*. Challenge: see if we can write a plugin which will detect YouTube links in metadata and embed a YouTube player (as a test case for a more general type of plugin that can show web previews of lots of different kinds of data). They got their hack to the "Hello World, I managed to get something on the screen" stage in 45 minutes, which is encouraging.
 
-# Sharyn and Andrew tried to hack together a simple plugin
+*Jake looked at map-embedding*: we had some sample data from UWS of KMZ (compressed Google-map-layers for UWS campuses), we wondered if it would be possible to show map data inline in an item page. Jake made some progress on this - the blocker isn't Omeka it was finding a good way to do the map embedding.
 
-The challenge: see if we can write a plugin which will detect YouTube links in metadata and embed a YouTube player. As a test case for a more general type of plugin that can show web previews of other kinds of data. After some inititial work on a 'plugin' Andrew and Sharon suspect that rendering media content is probably easier to achieve by modifying an Omeka Theme thab a plugin.
-
-## Jake looked at map-embedding
-
-Since we had some sample data from UWS of KMZ (compressed keyhole-markup files for UWS campuses), we wondered if it would be possible to show map data inline in an item page. Jake made some progress on this - the blocker isn't Omeka it was finding a good way to do this. Alf to the rescue with this snippet:
-
-    <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-    <script>
-    var map = new google.maps.Map(document.getElementById("map"),{});
-    var layer = new google.maps.KmlLayer('http://ptomeka.alfski.com/files/original/acdc7f0e7436478658b086677039121a.kmz', { map: map });
-    </script>
-
-# Cindy worked on the Intersect press-button Omeka deployment
+*Cindy* continued her work on the Intersect press-button Omeka deployment
 
 TODO: Can we get some details about this?
+
+*David* explored the API using an obscure long forgotten programming language, "Java" we think he called it.
 
 # What would an Omeka service look like?
 
@@ -149,7 +142,6 @@ To make a sustainable service, we'd want to:
 * Work out how to provide robust hosting with an optimal number of small Omeka servers per host (is it one? is it ten?).
 
 * Come up with a generic data management plan: "We'll host this for you for 12 months. After which if we don't come to a new arrangement your site will be archived and given a DOI and the web site turned off". Or something.
-
 
 
 
