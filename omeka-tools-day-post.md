@@ -7,10 +7,12 @@ author:
   affiliation: University of Western Sydney
 - name: Andrew Leahy
   affiliation: University of Western Sydney
-- name: Author 3
-  affiliation: ABC
+- name: Gerry Devine
+  affiliation: University of Western Sydney
+- name: Jake Farrell
+  affiliation: Intersect, Australia
+-
 
----
 
 So, we have been asking this 'Is it aDORAble?' question about a few different software packages, and putting them through their paces at a series of Tuesday 'tools days' hosted by UWS eResearch. What we're asking is, "Is this software going to be one of our supported Working Data Repositories for researcher cohorts?" That is, how does it rate as a [DORA], a Digital Object Repository for Academe?
 
@@ -69,11 +71,11 @@ There are some annoyances:
 # Can it do Linked Data
 There are a few different ways that Omeka may support Linked Data. Here are just a few:
   
-1.  Super hacky - use the HTML feature and put in RDFa \<a href="http://orcid.org/0000-0002-3545-944X" property="http://purl.org/dc/elements/1.1/creator">ptsefton</a> markup into metadata values
+1.  Super hacky - use the HTML feature and put in RDFa \<a href="http://orcid.org/0000-0002-3545-944X" property="http://purl.org/dc/elements/1.1/creator"\>ptsefton\</a> markup into metadata values
   
 2.  *Super simple but not very usable*: use bare URIs as values and (maybe) hack the Omeka theme to display some other string
   
-3.  *Also simple but problematic in other ways*: - use a portmanteau value like "Peter Sefton \<http://orcid.org/0000-0002-3545-944X>"
+3.  *Also simple but problematic in other ways*: - use a portmanteau value like "Peter Sefton \<http://orcid.org/0000-0002-3545-944X\>"
   
 4. *The [DOP] DIY approach*: Simply use the built in metadata (and Item relations) where possible/practical and also store a 'proper' RDF bitstream with richer metadata for each item, then use this to display more Linked-Data-esque item summaries, and build clever external indexes.
   
@@ -97,9 +99,23 @@ Of all these, number 5, using Item Relations looks quite good, but with a few (s
 
 ![Slightly doctored photo, either that or Cindy attended twice!](http://eresearch.uws.edu.au/public/om-pano.jpg)
 
-* Gerry devine showed off his "PageMaker" Semantic CMS
+*Gerry Devine showed off his "PageMaker" Semantic CMS*: Gerry says:
 
-TODO: Gerry! Can you give us some background here?
+> The SemanticPageMaker (temporary name) is an application that allows for the creation of 'Linked Data'-populated web pages to describe any chosen entity. Web forms are constructed from a pre-defined set of re-usable semantic tags which, when completed, automatically produce RDFa-enabled HTML and a corresponding JSON-LD document. The application thus allows semantically-rich information to be collected and exposed by users with little or no knowledge of semantic web terms.
+
+This is the missing link: a simple semantic CMS which doesn't try to be a complete semantic stack with ontologies etc, it just allows you to define entities and give each type of entity a URI, an let them relate to each other and to be a good Linked Data citizen providing RDF and JSON
+
+I have attached some screenshots from my local dev instance as well as an RDFa/html page and a JSON-LD doc that describes the FACE facility (just dummy info at this stage) - note the JSON-LD doesn’t expose all fields (due to duplicated keys) 
+
+
+A test instance is deployed on Heroku (feel free to register and start creating stuff – might need some pointers though in how to do that until I create some help pages):
+
+https://desolate-falls-4138.herokuapp.com/
+
+
+Github:
+
+https://github.com/gdevine/SemanticPageMaker
 
 And during the afternoon, Gerry worked on making his CMS able to be used for lookups, so for example if we wanted to link an Omeka item to a facility at [HIE] we'd be able to do that via a lookup. We're looking at building on work, the [Fill My List][FML] (FML) project started by a team from Open Repositories 2014 on a universal URI lookup service with a consitent API for different sources of truth. Since the tools-day Lloyd has installed a UWS copy of FML so we can start experimenting with it with our family of repositories and research contexts.
 
@@ -117,9 +133,12 @@ Peter Bugeia investigated how environmental-science data would look in Omeka, by
 
 *Jake looked at map-embedding*: we had some sample data from UWS of KMZ (compressed Google-map-layers for UWS campuses), we wondered if it would be possible to show map data inline in an item page. Jake made some progress on this - the blocker isn't Omeka it was finding a good way to do the map embedding.
 
-*Cindy* continued her work on the Intersect press-button Omeka deployment
+*Cindy* continued the work she's been doing with Jake on the Intersect press-button Omeka deployment. They're using something called [Snap Deploy] and [Ansible].
 
-TODO: Can we get some details about this?
+Jake says:
+> Through our Snapdeploy service Intersect are planning to offer researchers the ability to deploy their own instance of OMEKA with just a click of a button, with no IT knowledge required. All you need is an AAF log in and Snapdeploy will handle the creation of your NeCTAR Cloud VM and the deployment of OMEKA to that VM for you. We are currently in the beginning stages of adapting the Snapdeploy service to facilitate an Omeka setup and hope to offer it soon. We would also like feedback from you as researchers to let us know if there are any Omeka plug-ins that you think we could include as part of our standard deployment process that would be universally useful to the research community, so that we can ensure our Omeka product offers the functionality that researchers actually need.
+
+
 
 *David* explored the API using an obscure long forgotten programming language, "Java" we think he called it.
 
