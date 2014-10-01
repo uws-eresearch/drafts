@@ -102,20 +102,23 @@ Of all these, number 5, using Item Relations looks quite good, but with a few (s
 *Gerry Devine showed off his "PageMaker" Semantic CMS*: Gerry says:
 
 > The SemanticPageMaker (temporary name) is an application that allows for the creation of 'Linked Data'-populated web pages to describe any chosen entity. Web forms are constructed from a pre-defined set of re-usable semantic tags which, when completed, automatically produce RDFa-enabled HTML and a corresponding JSON-LD document. The application thus allows semantically-rich information to be collected and exposed by users with little or no knowledge of semantic web terms.
+>
+> I have attached some screenshots from my local dev instance as well as an RDFa/html page and a JSON-LD doc that describes the FACE facility (just dummy info at this stage) - note the JSON-LD doesn’t expose all fields (due to duplicated keys) 
+>
+> A test instance is deployed on Heroku (feel free to register and start creating stuff – might need some pointers though in how to do that until I create some help pages):
+>
+> https://desolate-falls-4138.herokuapp.com/
+>
+> Github:
+>
+> https://github.com/gdevine/SemanticPageMaker
 
-This is the missing link: a simple semantic CMS which doesn't try to be a complete semantic stack with ontologies etc, it just allows you to define entities and give each type of entity a URI, an let them relate to each other and to be a good Linked Data citizen providing RDF and JSON
 
-I have attached some screenshots from my local dev instance as well as an RDFa/html page and a JSON-LD doc that describes the FACE facility (just dummy info at this stage) - note the JSON-LD doesn’t expose all fields (due to duplicated keys) 
-
-
-A test instance is deployed on Heroku (feel free to register and start creating stuff – might need some pointers though in how to do that until I create some help pages):
-
-https://desolate-falls-4138.herokuapp.com/
+This might be the long-lost the missing link: a simple semantic CMS which doesn't try to be a complete semantic stack with ontologies etc, it just allows you to define entities realtions and give each type of entity a URI, and let them relate to each other and to be a good Linked Data citizen providing RDF and JSON data. Perfect for describing research context.
 
 
-Github:
 
-https://github.com/gdevine/SemanticPageMaker
+
 
 And during the afternoon, Gerry worked on making his CMS able to be used for lookups, so for example if we wanted to link an Omeka item to a facility at [HIE] we'd be able to do that via a lookup. We're looking at building on work, the [Fill My List][FML] (FML) project started by a team from Open Repositories 2014 on a universal URI lookup service with a consitent API for different sources of truth. Since the tools-day Lloyd has installed a UWS copy of FML so we can start experimenting with it with our family of repositories and research contexts.
 
