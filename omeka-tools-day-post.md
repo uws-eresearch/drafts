@@ -135,7 +135,7 @@ And during the afternoon, Gerry worked on making his CMS able to be used for loo
 
 *PT and Jacqueline chatted about rich semantically-linked  data-sets* like the Dictionary of Sydney. In preparation for the workshop, PT tried taking the data from the [Journey to Horseshoe Bend][JTHB] project, which is in a similar format to the Dictionary, putting it in a spreadsheet with multiple worksheets and importing it via a very dodgy [Python Script][xslt2omeka]. 
 
-Peter Bugeia investigated how environmental-science data would look in Omeka, by playing with the API to 
+*Peter Bugeia investigated how environmental-science data would look in Omeka*, by playing with the API to pump in data from the HIEv repository.
 
 
 *Sharyn and Andrew tried to hack together a simple plugin*. Challenge: see if we can write a plugin which will detect YouTube links in metadata and embed a YouTube player (as a test case for a more general type of plugin that can show web previews of lots of different kinds of data). They got their hack to the "Hello World, I managed to get something on the screen" stage in 45 minutes, which is encouraging.
