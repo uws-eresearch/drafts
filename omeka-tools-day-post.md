@@ -92,8 +92,8 @@ Since the hack day we have some more news on Omeka's coming linked data support.
 >
 >Patrick
 
-This new version of Omeka (Omeka-S) is due in "The Fall Semester of 2015", which is North American for late next year. Hard to tell from this short post by Patrick, but this looks promising.
-There are a few different ways that the current version of Omeka may support Linked Data. THe best way forward is probably to use the ItemRelations plugin.
+This new version of Omeka (Omeka-S) is due in "The Fall Semester of 2015", which is North American for late next year, in Spring. Hard to tell from this short post by Patrick, but this looks promising.
+There are a few different ways that the current version of Omeka may support Linked Data. The best way forward is probably to use the ItemRelations plugin.
 
 But what can we do in the meantime?
   
