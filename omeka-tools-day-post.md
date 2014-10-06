@@ -67,12 +67,35 @@ There are some annoyances:
 
 * Measured against our [principles], there's one clear gap. We want to encourage all use of metadata to embrace linked-data principles and use URIs to identify things, in preference to strings. So while Omeka scores points for shipping with Dublin Core metadata, it loses out for not supporting *linked* data. If only it let you have a URI as well as a string value for any metadata field!
 
-Since the hack day we have some more news on Omeka's linked data support 
-
 
 
 # Can it do Linked Data
+
+Since the hack day we have some more news on Omeka's coming linked data support.
+ Patrick from the Omeka Team [says][LoD] on their mailing list:
+
+>Hi Peter,
+>
+>Glad you asked!
+
+> The API will use JSON-LD.
+> 
+> The Item Add interface as we're currently imagining it has three options for each property: text input (like what exists now), internal reference (sorta bringing Item Relations into core, just with a better design), and external URI. The additional details, like using a local label for an external URI sound interesting, and we'll be thinking about if/how that kind of thing might work.
+> 
+> Properties, too, will be much more LoD-friendly. In addition to Dublin Core, the FOAF, BIBO, and other vocabularies will be available both for expressing properties, and the classes available (analogous to the Item Types currently available).
+> 
+> Changes like this (and more!) are at the heart of the changes to design and infrastructure I mentioned in an earlier response. We hope that the additional time will be worth it to be able to address needs like these!
+> 
+> You can watch the progress at the Omeka S repo: https://github.com/omeka/omeka-s 
+> 
+> Thanks,
+>
+>Patrick
+
+This new version of Omeka (Omeka-S) is due in "The Fall Semester of 2015", which is North American for late next year. Hard to tell from this short post by Patrick, but this looks promising.
 There are a few different ways that the current version of Omeka may support Linked Data. THe best way forward is probably to use the ItemRelations plugin.
+
+But what can we do in the meantime?
   
 * The Item Relations plugin desperately needs a new UI element to do lookups as at the moment you need to know the integer ID of the item you want to link to. Michael Lynch and Lloyd Harischandra both looked at various aspects of this problem on the day.
 	
@@ -186,3 +209,5 @@ To make a sustainable service, we'd want to:
 [Heurist]: https://code.google.com/p/heurist/
 
 [API]: https://github.com/uws-eresearch/plugin-ItemRelations
+
+[LoD]: https://groups.google.com/forum/#!topic/omeka-dev/-msNH2Xpiiw
