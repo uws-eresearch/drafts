@@ -3,7 +3,7 @@
 title: Is Omeka aDORAable?
 
 author:
-- name: Peter Sefton
+- name: Peter (PT) Sefton
   affiliation: University of Western Sydney
 - name: Andrew Leahy
   affiliation: University of Western Sydney
@@ -11,7 +11,7 @@ author:
   affiliation: University of Western Sydney
 - name: Jake Farrell
   affiliation: Intersect, Australia
--
+
 
 
 So, we have been asking this 'Is it aDORAble?' question about a few different software packages, and putting them through their paces at a series of Tuesday 'tools days' hosted by UWS eResearch. What we're asking is, "Is this software going to be one of our supported Working Data Repositories for researcher cohorts?" That is, how does it rate as a [DORA], a Digital Object Repository for Academe?
@@ -57,9 +57,9 @@ Omeka has a lot to recommend it:
 
 There are some annoyances:
 
-* The documentation, which at first glance seems fairly comprehensive is actually quite lacking. Examples of the plugin API are incorrect, and the description of the external API are pretty terse and very short on examples (eg they don't actually give an example of how to use your API key, or the pagination)/
+* The documentation, which at first glance seems fairly comprehensive is actually quite lacking. Examples of the plugin API are incorrect, and the description of the external API are pretty terse and very short on examples (eg they don't actually give an example of how to use your API key, or the pagination).
 
-* The API while complete is quite painful to use if you want to add anything - to add an item with metadata it's not as simple as saying {"title": "My title"} or even {"dc:title": "My Title"} - you have to do an API call to find elements called Title, from the different element sets, then pick one and use *that*. And copy-pasting someone else's example is hard: their metadata element 50 may not be the same as yours. That's nothing a decent API library wouldn't take care of, and I'm looking for a student who'd like to take the Python API on as a project.
+* The API while complete is quite painful to use if you want to add anything - to add an item with metadata it's not as simple as saying {"title": "My title"} or even {"dc:title": "My Title"} - you have to do an API call to find elements called Title, from the different element sets, then pick one and use *that*. And copy-pasting someone else's example is hard: their metadata element 50 may not be the same as yours. That's nothing a decent API library wouldn't take care of, the eResearch team is looking for a student who'd like to take the Python API on as a project.
 
 * No access control to speak of.
 
@@ -124,18 +124,14 @@ But what can we do in the meantime?
 > https://github.com/gdevine/SemanticPageMaker
 
 
-This might be the long-lost the missing link: a simple semantic CMS which doesn't try to be a complete semantic stack with ontologies etc, it just allows you to define entities realtions and give each type of entity a URI, and let them relate to each other and to be a good Linked Data citizen providing RDF and JSON data. Perfect for describing research context.
-
-
+This might be the long-lost missing link: a simple semantic CMS which doesn't try to be a complete semantic stack with ontologies etc, it just allows you to define entities realtions and give each type of entity a URI, and let them relate to each other and to be a good Linked Data citizen providing RDF and JSON data. Perfect for describing research context.
 
 
 
 And during the afternoon, Gerry worked on making his CMS able to be used for lookups, so for example if we wanted to link an Omeka item to a facility at [HIE] we'd be able to do that via a lookup. We're looking at building on work, the [Fill My List][FML] (FML) project started by a team from Open Repositories 2014 on a universal URI lookup service with a consitent API for different sources of truth. Since the tools-day Lloyd has installed a UWS copy of FML so we can start experimenting with it with our family of repositories and research contexts.
 
 
- Lloyd and Michael both worked on metadata lookups
-
-Michael got a proof-of-concept UI going so that a user can use auto-complete to find Items rather than having to copy IDs.
+*Lloyd and Michael both worked on metadata lookups*. Michael got a proof-of-concept UI going so that a user can use auto-complete to find Items rather than having to copy IDs. Lloyd got some autocomplete happening via a lookup to Orcid via [FML].
 
 *PT and Jacqueline chatted about rich semantically-linked  data-sets* like the Dictionary of Sydney. In preparation for the workshop, PT tried taking the data from the [Journey to Horseshoe Bend][JTHB] project, which is in a similar format to the Dictionary, putting it in a spreadsheet with multiple worksheets and importing it via a very dodgy [Python Script][xslt2omeka]. 
 
