@@ -34,9 +34,9 @@ So what were we wanting to know about Omeka? The external folks came along for a
 
    The verdict? Still working on it, but reasonably promising so far.
 
-* In summary, beyond its obvious purpose, is this a potential generic Digital Object Repository of Academe [(DORA])?
+* In summary, beyond its obvious purpose, is this a potential generic Digital Object Repository of Academe ([DORA])?
 
-   Maybe. Of all the repository software we've tried at tools-days and looked at behind the scenes, this seems to be the most flexible and easily approachable of any repository software.
+   Maybe. Of all the repository software we've tried at tools-days and looked at behind the scenes, this seems to be the most flexible and easily approachable.
 
 
 # Good
@@ -47,7 +47,7 @@ Omeka has a lot to recommend it:
 
 * It's easy to hack, and easy to hack well, since it has plugins and themes that let you customise it without touching the core code. These are easy enough to work with that we had people getting (small) results on the day. More on that below.
 
-* It uses the [Digital Object Pattern] (DOP) - ie at the heart of Omeka are digital objects called Items with metadata, and attached files. 
+* It uses the Digital Object Pattern ([DOP]) - ie at the heart of Omeka are digital objects called Items with metadata, and attached files. 
 
 * It has an API which just works, and can add items etc, although there are some complexities, more on which below.
 
@@ -65,31 +65,18 @@ There are some annoyances:
 
 * By default the MYSQL search is set up to only search for 4 letter words or greater, so you can't search for CO2 or PTA (Parramatta) both of which are in our test data; totally fixable with some tweaking.
 
-* Measured against our [principles], there's one clear gap. We want to encourage all use of metadata to embrace linked-data principles and use URIs to identify things, in preference to strings. So while Omeka scores points for shipping with Dublin Core metadata, it loses out for not supporting *linked* data. If only it let you have a URI as well as a string value for any metadata field! We're not the only ones who want this, we know from sporadic forum posts that people want their linked data and the Omeka team seem to support the idea. So, we'll see what we can do to restart the conversation.
+* Measured against our [principles], there's one clear gap. We want to encourage all use of metadata to embrace linked-data principles and use URIs to identify things, in preference to strings. So while Omeka scores points for shipping with Dublin Core metadata, it loses out for not supporting *linked* data. If only it let you have a URI as well as a string value for any metadata field!
+
+Since the hack day we have some more news on Omeka's linked data support 
+
 
 
 # Can it do Linked Data
-There are a few different ways that Omeka may support Linked Data. Here are just a few:
-  
-1.  Super hacky - use the HTML feature and put in RDFa \<a href="http://orcid.org/0000-0002-3545-944X" property="http://purl.org/dc/elements/1.1/creator"\>ptsefton\</a> markup into metadata values
-  
-2.  *Super simple but not very usable*: use bare URIs as values and (maybe) hack the Omeka theme to display some other string
-  
-3.  *Also simple but problematic in other ways*: - use a portmanteau value like "Peter Sefton \<http://orcid.org/0000-0002-3545-944X\>"
-  
-4. *The [DOP] DIY approach*: Simply use the built in metadata (and Item relations) where possible/practical and also store a 'proper' RDF bitstream with richer metadata for each item, then use this to display more Linked-Data-esque item summaries, and build clever external indexes.
-  
-5.  *Elegant, but will it scale?* Use the Item Relations plugin. Create a page for your creator, with a URI, then link another record to it using an term from one of the known vocabs, like Dublin Core or FRBR.
-
-6.  *Change Omeka* (or write a very intrusive plugin): What if all metadata 'elements' in Omeka had an extra slot for the URI value as well as a string value? And while we're at it, allow metadata elements to have URIs as well as names. Problem with this is it crosses into the territory of the Item Relations plugin.
-
-7.  *Bizarre ugly stuff we'd almost certainly never do in real life*: One way of hacking together Linked Data support would be to resort to ugly hacks like having "Creator1String" and "Creator1URI" as two separate fields then hiding this behind the UI. Or more fun but much much worse, when someone creates a new 'Creator' allow them to add a URI by minting a new metadata element like Creator_Peter%20Sefton_URI. Pretty sure this would break Omeka after a few thousand of these fields had been created and make the DORA-gods very cranky.
-
-Of all these, number 5, using Item Relations looks quite good, but with a few (soluble but sobering) problems:
+There are a few different ways that the current version of Omeka may support Linked Data. THe best way forward is probably to use the ItemRelations plugin.
   
 * The Item Relations plugin desperately needs a new UI element to do lookups as at the moment you need to know the integer ID of the item you want to link to. Michael Lynch and Lloyd Harischandra both looked at various aspects of this problem on the day.
 	
-* Item Relations don't show up in the API. But the API is extensible, so that should be doable, should be simple enough to add a resource for item_realations and allow thevocab lookups etc needed to relate things to each other as (essentially) Subject Predicate Object.
+* Item Relations don't show up in the API. But the API is extensible, so that should be doable, should be simple enough to add a resource for item_realations and allow thevocab lookups etc needed to relate things to each other as (essentially) Subject Predicate Object. PT's been [working on this as a spare-time project][API].
 	
 * Item Relations doesn't allow for a text label on the relation or the endpoint, so while you might want to say someone is the dc:creator of a resource, you only see the "Creator" label and the title of the item you link to. What if you wanted to say "Dr Sefton" or "Petiepie" rather than "Peter Sefton" but still link to the same item?
 
@@ -165,15 +152,24 @@ To make a sustainable service, we'd want to:
 
 * Come up with a generic data management plan: "We'll host this for you for 12 months. After which if we don't come to a new arrangement your site will be archived and given a DOI and the web site turned off". Or something.
 
+[DOP]: http://ptsefton.com/2014/09/22/digital-object-pattern-dop-vs-chucking-files-in-a-database-approaches-to-repository-design.htm
 
+[xslt2omeka]: https://github.com/uws-eresearch/omekadd/blob/master/xlsx2omeka.md
 
+[HIE]: http://uws.edu.au/hie
 
+[FML]: https://github.com/gobfrey/OR2014-chalege
+
+[Journey to Horseshoe Bend]: http://pubsites.uws.edu.au/coa/soca/jthb/
+
+[Snap Deploy]: http://www.acronis.com/en-au/business/enterprise-solutions/image-deployment/
+
+[Ansible]: http://www.ansible.com/home
 
 [do]: http://www.dlib.org/dlib/january10/reilly/01reilly.html
 
 [DoS]: http://home.dictionaryofsydney.org/
 
-[DOP]: http://ptsefton.com/2014/09/22/digital-object-pattern-dop-vs-chucking-files-in-a-database-approaches-to-repository-design.htm
 
 [DORA]: http://eresearch.uws.edu.au/blog/2014/09/11/who-is-dora/
 
@@ -188,3 +184,5 @@ To make a sustainable service, we'd want to:
 [JTHB]: http://pubsites.uws.edu.au/coa/soca/jthb/
 
 [Heurist]: https://code.google.com/p/heurist/
+
+[API]: https://github.com/uws-eresearch/plugin-ItemRelations
