@@ -14,5 +14,8 @@ So we created a new Omeka instance on the Nectar SA node using Intersect's Snap 
 
 In the meantime we started to model the LabRun and run-results as a new ItemType in Omeka. It was easy enough to add new Omeka elements to the new LabRun item Type, but we found there was no typing or validation we could apply to these elements. When creating a new LabRun item, we set the new element up as linked open data where we thought relevant but this was painful through the UI. If we do this through the API their is less of a problem, but to make this robust it appears we'll need to configure the Item UI. It's not clear whether this can be done through the Omeka object model and for it to be doable on a per Item basis (different itemtypes will need to have different validation)  => Further work is required.
 
-See 3 screen shots over in the uws research blog....
+Screen shots:
+[Context diagram](http://eresearch.uws.edu.au/blog/wp-content/uploads/2014/11/LabData_Omeka_Plan.jpg)
+
+
 
