@@ -18,7 +18,7 @@ Screen shots:
 [Context diagram](http://eresearch.uws.edu.au/blog/wp-content/uploads/2014/11/LabData_Omeka_Plan.jpg),
 [Interaction diagram](http://eresearch.uws.edu.au/blog/wp-content/uploads/2014/11/20141120_161455.jpg),
 [Omeka LabRun Item Type](http://eresearch.uws.edu.au/blog/wp-content/uploads/2014/11/Omeka-LabRun-Item-Type.png),
-[Omeka Item](http://eresearch.uws.edu.au/blog/wp-content/uploads/2014/11/Omeka-Item.png)
+[Omeka LabRun Item](http://eresearch.uws.edu.au/blog/wp-content/uploads/2014/11/Omeka-Item.png)
 
 
 
