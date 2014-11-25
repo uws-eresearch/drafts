@@ -16,7 +16,7 @@ How it works:
 4. Select the name authority you want to use. In this case, it's DAAO names
 
 So now we have the knowledge to add as many name authorities as we want when needed.
-# Peter & Gerry: Omeka as a catalogue for lab data
+# Peter Bugeia & Gerry Devine: Omeka as a catalogue for lab data
 Our team (Gerry Devine, Peter Bugeia) looked at a gap which UWS Hawkesbury Institute for the Environment has with cataloging their laboratory data. We looked at using Omeka to catalog the data.
 
 First some background. UWS HIE do climate change research. They use Intersect's ruby-on-rails DIVER app to capture their field facility time series sensor network data. In addition to this data, technical staff collect  a lot of field samples, mostly soil and plant samples. The samples are managed in a home-grown Ruby-on-rails app which Gerry Devine wrote called SampleTracker. Researchers use a variety of analytical and diagnostic testing equipment to analyse the samples. Once completed, the output from these tests are placed on a share drive with very little metadata. The researchers currently hand the samples and a Job Request form with the details of the analysis to be run to lab technicians who schedule and execute the jobs. This is all manual but in the future there will be a job request/scheduling system built which manages these requests. (As an aside, we looked at doing the job request system in Omeka too, but felt it was probably better to have this workflow segregated) Once a job is complete, Individual researchers know where their lab data is placed but no-one else does, so this is a problem for future discovery and re-use of the data. having a catalog solves that problem.
