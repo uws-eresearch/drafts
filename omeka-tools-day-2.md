@@ -33,6 +33,21 @@ Screen shots:
 ![Omeka LabRun Item Type](http://eresearch.uws.edu.au/blog/wp-content/uploads/2014/11/Omeka-LabRun-Item-Type.png),
 ![Omeka LabRun Item](http://eresearch.uws.edu.au/blog/wp-content/uploads/2014/11/Omeka-Item.png)
 
+# Alf, Jake, Cindy, Michael !Lynch & Paul: Omeka Deployment
+
+Production readiness:
+* SELinux policy from omeka - meet audit/security
+* Updating install/deploy guide for newer operating systems
+* Apache security: htaccess file Do we really want "Override All" in the Apache config? switch to production-suitable strategies for providing rewrite capabilities (also performance)
+* Database security: Post install still has db drop tables priv - this needs to be removed. Just deployment fluff. Needs polish.
+* Vulnerabilities. What awareness of risks are there? One reported this year, but smaller userbase may mean lack of testing/reporting. http://www.cvedetails.com/product/28202/Omeka-Omeka.html?vendor_id=13565
+* Scalability? need to query production sites on scaling strategies, load balancing -- millions of objects -- the limit is "your server. Can we scale database instances to increase performance? Let's test that.
+* What stays in files what goes into database records, answer=original files stay as files but as a unique hashed filename which is stored in db
+* Database choices? what is there besides mysql? mariadb/postgresql? nosql?
+* Solr plugin underneath? support for centralized/hosted solr no attached to application? should be integrated into snapdeploy. Why is it not tagged as v2 compatible?
+* Omeka testsuite? there are test modules we should work into snapdeploy/etc
+* Can ppl migrate/export the data ? ongoing big question about the comings and goings of researchers with their data
+* How will Omeka interoperate with other DORAe?
 
 [modded-lc-suggest]: https://github.com/uws-eresearch/plugin-LcSuggest
 
